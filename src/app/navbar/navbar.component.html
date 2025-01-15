@@ -20,11 +20,20 @@
       <div class="input-group-append">
         <div class="btn-group">
           <div
+          *ngIf="!isUserConnected"
             [routerLink]="'/auth/login'"
             class="btn btn-primary"
             style="border-radius: 50px"
           >
             Login
+          </div>
+          <div
+          *ngIf="isUserConnected"
+            (click)="logout()"
+            class="btn btn-primary"
+            style="border-radius: 50px"
+          >
+            Logout
           </div>
         </div>
       </div>
