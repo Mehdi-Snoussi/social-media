@@ -1,0 +1,70 @@
+<body id="RegisterForm">
+  <div class="container">
+    <div class="register-form">
+      <div class="main-div">
+        <div class="panel text-center mb-4">
+          <h2>Inscription</h2>
+          <p>Veuillez remplir vos informations pour créer un compte</p>
+        </div>
+        <div [formGroup]="registerForm">
+          <div class="row mb-3">
+            <div class="col">
+              <input
+                type="text"
+                class="form-control"
+                id="inputFirstName"
+                formControlName="firstname"
+                placeholder="First Name"
+                required
+              />
+            </div>
+            <div class="col">
+              <input
+                type="text"
+                class="form-control"
+                id="inputLastName"
+                placeholder="Nom"
+                formControlName="lastname"
+                required
+              />
+            </div>
+          </div>
+          <div class="mb-3">
+            <input
+              type="email"
+              class="form-control"
+              id="inputEmail"
+              placeholder="Email Address"
+              required
+              formControlName="email"
+            />
+          </div>
+          <div class="mb-3">
+            <input
+              type="password"
+              class="form-control"
+              id="inputPassword"
+              placeholder="Password"
+              formControlName="password"
+              required
+            />
+          </div>
+          <div class="forgot">
+            <div style="cursor: pointer" [routerLink]="'/auth/login'">
+              Vous avez déjà un compte ?
+            </div>
+          </div>
+          <button
+            [disabled]="!registerForm.valid"
+            (click)="registerUser()"
+            type="submit"
+            class="btn btn-primary w-100"
+          >
+            Register
+          </button>
+        </div>
+      </div>
+      <p class="botto-text">© Copyright 2025</p>
+    </div>
+  </div>
+</body>

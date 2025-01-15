@@ -1,0 +1,33 @@
+<nav class="navbar navbar-dark bg-dark">
+  <div
+    style="cursor: pointer"
+    [routerLink]="'/home'"
+    class="navbar-brand d-flex align-items-center"
+  >
+    <img
+      src="https://img.icons8.com/ios/50/000000/facebook-new.png"
+      width="30"
+      background-color="white"
+      height="30"
+      margin-right="40px"
+      class="d-inline-block align-top ml-2"
+      alt=""
+    />
+    <span class="ml-2">Réseau Social</span>
+  </div>
+  <form class="form-inline">
+    <div class="input-group">
+      <div class="input-group-append">
+        <div class="btn-group">
+          <div
+            [routerLink]="'/auth/login'"
+            class="btn btn-primary"
+            style="border-radius: 50px"
+          >
+            Login
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</nav>

@@ -1,0 +1,48 @@
+<body id="LoginForm">
+  <div class="container">
+    <div class="login-form">
+      <div class="main-div">
+        <div class="panel text-center mb-4">
+          <h2>Connexion</h2>
+          <p>Veuillez saisir votre e-mail et votre mot de passe</p>
+        </div>
+        <div [formGroup]="loginForm" id="Login">
+          <div class="mb-3">
+            <input
+              type="email"
+              class="form-control"
+              id="inputEmail"
+              placeholder="Email Address"
+              formControlName="email"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <input
+              type="password"
+              class="form-control"
+              id="inputPassword"
+              placeholder="Password"
+              formControlName="password"
+              required
+            />
+          </div>
+          <div class="forgot">
+            <div style="cursor: pointer" [routerLink]="'/auth/register'">
+              vous n'avez pas de compte ?
+            </div>
+          </div>
+          <button
+            (click)="loginUser()"
+            [disabled]="!loginForm.valid"
+            type="submit"
+            class="btn btn-primary w-100"
+          >
+            Login
+          </button>
+        </div>
+      </div>
+      <p class="botto-text">© Copyright 2025</p>
+    </div>
+  </div>
+</body>
