@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
+import { CommonModule } from '@angular/common'; 
 import { MainRoutingModule } from './main-routing.module';
-import { HomeComponent } from './home/home.component';
-import { NavbarComponent } from '../navbar/navbar.component';
+import { HomeComponent } from './home/home.component'; 
 import { MainComponent } from './main.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,6 +12,8 @@ import { MainComponent } from './main.component';
     MainComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     MainRoutingModule
   ]

@@ -27,12 +27,15 @@ export class LoginComponent {
   }
 
   loginUser() {
+    this.authService.clearCookies();
     this.authService
       .login(this.loginForm.value)
       .pipe(takeUntil(this.endSubscription))
       .subscribe({
-        next: res => {
-          
+        next: (res: any) => {
+          this.authService.setTokenToCookie(res.token);
+          this.authService.storeConnectedUserInfoInCookie(res.token);
+          this.router.navigate(['home']);
         },
       });
   }
