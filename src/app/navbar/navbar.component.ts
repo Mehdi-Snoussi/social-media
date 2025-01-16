@@ -16,14 +16,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.getUserSubject();
   }
 
-  getUserSubject() {
-    this.authService.clearCookies();
+  getUserSubject() { 
     this.authService
       .getUserSubject()
       .pipe(takeUntil(this.endSubscription))
       .subscribe({
-        next: (res) => {
-          console.log(res);
+        next: (res) => { 
           this.user = res;
         },
       });

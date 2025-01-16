@@ -25,7 +25,7 @@
     </div>
     <div class="col-md-6 gedf-main">
       <!--- \\\\\\\Post-->
-      <div class="card gedf-card">
+      <div *ngIf="user" class="card gedf-card">
         <div class="card-header">
           <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
             <li class="nav-item">
@@ -135,7 +135,7 @@
               </div>
             </div>
             <div>
-              <div class="dropdown">
+              <div *ngIf="user" class="dropdown">
                 <button
                   class="btn btn-link dropdown-toggle"
                   type="button"
@@ -176,7 +176,7 @@
             voluptates.
           </p>
         </div>
-        <div class="card-footer">
+        <div *ngIf="user" class="card-footer">
           <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
           <a href="#" class="card-link"
             ><i class="fa fa-comment"></i> Comment</a
@@ -185,16 +185,7 @@
             ><i class="fa fa-mail-forward"></i> Share</a
           >
         </div>
-      </div>
-      <!-- Post /////-->
-
-      <!--- \\\\\\\Post-->
-
-      <!-- Post /////-->
-
-      <!--- \\\\\\\Post-->
-
-      <!-- Post /////-->
+      </div> 
     </div>
     <div class="col-md-3">
       <div class="card gedf-card">
