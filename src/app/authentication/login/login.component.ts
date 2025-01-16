@@ -34,8 +34,10 @@ export class LoginComponent {
       .subscribe({
         next: (res: any) => {
           this.authService.setTokenToCookie(res.token);
-          this.authService.storeConnectedUserInfoInCookie(res.token);
-          this.router.navigate(['home']);
+          this.authService.storeConnectedUserInfoInCookie(res.token); 
+          this.router.navigateByUrl('/', { skipLocationChange: true })?.then(() => {
+            this.router.navigate(['home'])
+          })
         },
       });
   }
