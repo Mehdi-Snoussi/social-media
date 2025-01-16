@@ -41,7 +41,12 @@ export function jwtOptionsFactory(cookieService: CookieService) {
   ],
   exports: [FormsModule, ReactiveFormsModule],
   providers: [
-    CookieService, 
+    CookieService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: SocialInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
