@@ -75,6 +75,7 @@ export class AuthService {
   /* clear data */
   clearData() {
     localStorage.clear();
+    this.updateUserSubject(null)
     this.clearCookies();
     this.router.navigate(['auth/login']);
   }
