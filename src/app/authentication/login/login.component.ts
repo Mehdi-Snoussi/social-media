@@ -35,7 +35,7 @@ export class LoginComponent {
         next: (res: any) => {
           this.authService.setTokenToCookie(res.token);
           this.authService.storeConnectedUserInfoInCookie(res.token); 
-          this.router.navigateByUrl('/auth/login', { skipLocationChange: true })?.then(() => {
+          this.router.navigateByUrl('/auth/login', { skipLocationChange: false })?.then(() => {
             this.router.navigate(['home'])
           })
         },
