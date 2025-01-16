@@ -15,13 +15,10 @@ export class SocialInterceptor implements HttpInterceptor {
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler
-  ): Observable<HttpEvent<unknown>> {
-    request = request.clone({
-      headers: request.headers.set('Content-Type', 'application/json'),
-    });
+  ): Observable<HttpEvent<unknown>> { 
     return new Observable((observer) => {
       const subscription = next
-        .handle(this.addAuthorizationHeaderToRequest(request))
+        .handle( request )
         .subscribe({
           next: () => {
             next.handle(request);
