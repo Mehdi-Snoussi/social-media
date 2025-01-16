@@ -3,12 +3,14 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { CookieService } from 'ngx-cookie-service';
+import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+ private userSubject = new BehaviorSubject({})
   url = environment.urlApi;
   constructor(
     private http: HttpClient,
@@ -37,6 +39,7 @@ export class AuthService {
   /* set connect user to cookies */
   storeConnectedUserInfoInCookie(value: string) {
     const user = this.decodeUserToken(value);
+    this.updateUserSubject(user)
     const data = JSON.stringify(user);
     this.cookieService.delete('user');
     this.cookieService.set('user', JSON.stringify(data), 365, '/');
@@ -74,5 +77,13 @@ export class AuthService {
     localStorage.clear();
     this.clearCookies();
     this.router.navigate(['auth/login']);
+  }
+
+  getUserSubject() {
+    return this.userSubject.asObservable()
+  }
+
+  updateUserSubject(data: any) {
+    this.userSubject.next(data)
   }
 }

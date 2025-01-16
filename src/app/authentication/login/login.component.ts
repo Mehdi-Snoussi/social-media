@@ -35,8 +35,7 @@ export class LoginComponent {
         next: (res: any) => {
           this.authService.setTokenToCookie(res.token);
           this.authService.storeConnectedUserInfoInCookie(res.token);
-          this.router.navigate(['home']);
-          window.location.reload();
+          this.router.navigate(['home']); 
         },
       });
   }
